@@ -1,169 +1,220 @@
-# Space-Habitat-Design-System
+# 🌌 Space-Habitat-Design-System (SHDS)
+**_Autonomous Resource Management System — AI-Powered Space Mission Dashboard_**
 
 
-## Overview
-
-Space-Habitat-Design-System (Autonomous Resource Management System) is an AI-powered solution designed for space missions to manage critical resources, monitor astronaut health, and predict survival time. This documentation explains how each section of the application works, including its functionality, layout, and user interaction.
-
----
-
-## 1. Introduction
-
-Space-Habitat-Design-SystemMS provides a smSpace-Habitat-Design-Systemt and autonomous way to handle space emergencies through continuous data monitoring, prediction, and alerts. It integrates multiple modules—each focusing on mission-critical aspects like oxygen, health, and communication.
-
-Core Modules:
-- AI Advisor: Suggests health and resource actions.
-- Analytics DashboSpace-Habitat-Design-Systemd: Visualizes resource and mission data.
-- NASA APOD Integration: Displays Astronomy Picture of the Day.
-- Survival Prediction Engine: Estimates astronaut survival time using simulated machine leSpace-Habitat-Design-Systemning logic.
+> **SHDS (Space-Habitat-Design-System)** is a real-time AI-powered space mission management system that monitors astronaut health, predicts survival time, manages mission analytics, and connects directly with NASA’s Astronomy Picture of the Day (APOD) API — all inside an immersive, interactive dashboard built with **Streamlit**.
 
 ---
 
-## 2. Visual Space-Habitat-Design-Systemchitecture Diagram
-+-----------------------------------------------------------+
+## 🛰 Overview
 
-| Space-Habitat-Design-SystemMS System Overview |
+The **Space-Habitat-Design-System (SHDS)** — also known as the **Autonomous Resource Management System (ARMS)** — provides intelligent mission support for astronauts and scientists.  
+It enables **continuous monitoring, prediction, and adaptive recommendations** for safer and more efficient space missions.
 
-+-----------------------------------------------------------+
-
-| Sensors → AI Engine → DashboSpace-Habitat-Design-Systemd → Alerts & Predictions |
-
-+-----------------------------------------------------------+
-
----
-
-## 3. Application Pages and Working
-
-### 3.1 DashboSpace-Habitat-Design-Systemd Page
-Purpose: The central control panel for astronauts and mission controllers.
-
-Key Functions:
-- Displays live sensor readings: Oxygen, HeSpace-Habitat-Design-Systemt Rate, Temperature, Water Supply.
-- Updates data every few seconds through simulated AI-driven sensors.
-- Triggers visual alerts (color-coded) if readings cross danger thresholds.
-- Shows mission time and current survival prediction.
-
-Components Used:
-- RechSpace-Habitat-Design-Systemts for dynamic graphs.
-- TailwindCSS for responsive design.
-- React state hooks for live updates.
-
-User Interaction:
-Users can hover over chSpace-Habitat-Design-Systemts for tooltips, click to view detailed stats, or refresh data manually.
+### 🚀 Core Modules
+- 🤖 **AI Advisor:** Provides mission-critical suggestions based on live vitals.  
+- 📊 **Analytics Dashboard:** Visualizes mission and resource data.  
+- 🩺 **Astronaut Dashboard:** Displays live vitals & survival predictions.  
+- 🌌 **NASA APOD Integration:** Shows NASA’s Astronomy Picture of the Day.  
+- 🔔 **Alerts & Notifications:** Smart alerting for emergencies and anomalies.  
 
 ---
 
-### 3.2 Analytics Page
-Purpose: To provide performance, resource, and health statistics in a visual format.
+## 🧠 System Architecture
 
-Key Features:
-- Line chSpace-Habitat-Design-Systemts for oxygen and temperature trends.
-- Pie chSpace-Habitat-Design-Systemts for mission resource distribution.
-- BSpace-Habitat-Design-System chSpace-Habitat-Design-Systemts for crew activity efficiency.
-- Predictive model insights based on time-series simulations.
+Sensors → AI Engine → SHDS Dashboard → Alerts & Predictions
 
-Working Mechanism:
-- Fetches recent AI-generated logs.
-- Calculates averages and anomalies.
-- Displays visual insights through RechSpace-Habitat-Design-Systemts.
+yaml
+Copy code
 
-User Interaction:
-Users can switch between pSpace-Habitat-Design-Systemameters, view performance history, and compSpace-Habitat-Design-Systeme multiple astronaut vitals.
+Each sensor feeds real-time mission data (oxygen, heart rate, temperature, etc.) into the AI Engine, which then updates the dashboard visuals and triggers predictive analytics.
 
 ---
 
-### 3.3 AI Advisor Page
-Purpose: To interpret current mission data and provide intelligent suggestions.
+## 🌐 Application Pages
 
-How It Works:
-- Takes input from all sensors and vitals.
-- Applies logic to identify risks (e.g., low oxygen or dehydration).
-- Displays an advisory message such as “Increase O2 intake” or “Crew rest recommended.”
+### 1️⃣ Dashboard Page  
+**Purpose:** The main control hub for mission controllers and astronauts.
 
-Example Advisory Logic:
-if oxygen_level < 30% → Alert: Critical Oxygen Shortage
-if heSpace-Habitat-Design-Systemt_rate > 120 bpm → Suggest: Rest & Recheck hydration
+**Key Features:**
+- Displays live vitals: 🫁 Oxygen, ❤️ Heart Rate, 🌡 Temperature, 💧 Water Supply  
+- Color-coded alerts based on critical thresholds  
+- Real-time survival prediction  
+- Animated UI with dynamic space theme  
 
-AI Advisor Updates:
-- Every minute, the page refreshes with new recommendations.
-- Users can manually request a fresh analysis.
+**User Interaction:**  
+Hover over charts for detailed tooltips or manually refresh to update mission stats.
 
 ---
 
-### 3.4 NASA APOD (Astronomy Picture of the Day)
-Purpose: To display real-time daily space images directly from NASA’s API.
+### 2️⃣ Analytics Page  
+**Purpose:** Deep mission insights with AI-powered visualizations.
 
-Working:
-- Calls the NASA APOD API endpoint: https://api.nasa.gov/planetSpace-Habitat-Design-Systemy/apod
-- Retrieves the image, title, and description.
-- Displays it with smooth UI transitions.
+**Visuals:**
+- Line charts for oxygen & temperature trends  
+- Pie charts for resource usage  
+- Bar charts for crew efficiency  
 
-Why It’s Important:
-- Keeps the mission team inspired and connected to broader space reseSpace-Habitat-Design-Systemch.
-- Adds aesthetic and educational value to the system.
-
----
-
-### 3.5 Settings & Control Panel
-Purpose: Allows configuration and management of Space-Habitat-Design-SystemMS pSpace-Habitat-Design-Systemameters.
-
-Functions:
-- Update refresh rate for live data.
-- Toggle between metric and imperial units.
-- Manage alert sound notifications.
-- Connect or disconnect from live sensor feed.
-
-How It Works:
-All configurations Space-Habitat-Design-Systeme stored in the local state and persist during the current mission session.
+**Working:**  
+Fetches simulated AI data, detects anomalies, and provides insight-based analytics.
 
 ---
 
-### 3.6 Reports & Logs Page
-Purpose: To generate and review mission health and resource logs.
+### 3️⃣ AI Advisor  
 
-Features:
-- Automatically records all system updates.
-- Exports daily logs in CSV or PDF format.
-- Highlights abnormal readings for review.
-
-Internal Functioning:
-- Uses timestamped entries.
-- Stores temporSpace-Habitat-Design-Systemy logs in localStorage.
-- Can integrate with Firebase for cloud backup.
+**Purpose:** Intelligent suggestion engine.  
+Analyzes all inputs and provides immediate recommendations.
 
 ---
 
-### 3.7 Alerts & Notifications Page
-Purpose: To list all wSpace-Habitat-Design-Systemnings and automated alerts generated by the AI engine.
+### 4️⃣ NASA APOD Viewer
+Purpose: Displays NASA’s Astronomy Picture of the Day with title & description.
 
-Alert Types:
-- Critical Alerts: Immediate threat to astronaut health.
-- Moderate Alerts: Require attention but not life-threatening.
-- System Alerts: AI or sensor malfunctions.
+API:
+https://api.nasa.gov/planetary/apod?api_key=YOUR_KEY
 
-Display Mechanism:
-- Red, orange, and blue color coding.
-- Alert sound with timestamp and reason.
-
-User Options:
-- Dismiss or acknowledge alert.
-- View detailed cause and recommended fix.
+Why: Adds visual engagement and connects mission teams to daily space discoveries.
 
 ---
 
-## 4. Future Page Extensions
-| Page | Planned Enhancement |
-|-------|---------------------|
-| DashboSpace-Habitat-Design-Systemd | Integrate actual IoT sensor APIs |
-| Analytics | Add prediction chSpace-Habitat-Design-Systemts with ML regression models |
-| AI Advisor | Connect with Gemini or OpenAI for natural explanations |
-| Logs | Sync data to cloud with timestamps |
-| Alerts | Voice alert system with Space-Habitat-Design-System overlay |
+### 5️⃣ Settings Panel
+- Adjust live data refresh rate
+
+- Toggle metric/imperial units
+
+- Enable/disable sound alerts
+
+- Connect/disconnect live sensor feeds
+
+- All settings persist for the session.
 
 ---
 
-## 5. Contact Information
-Developer: Safwan
+### 6️⃣ Reports & Logs
+- Generate daily logs in CSV or PDF
 
-© 2025 Space-Habitat-Design-SystemMS Project. All rights reserved.
-"""
+- Highlight anomalies and warnings
+
+- Store local logs or sync to cloud (Firebase optional)
+
+---
+
+### 7️⃣ Alerts & Notifications
+🔴 Critical Alerts: Immediate threats
+
+🟠 Moderate Alerts: Warnings
+
+🔵 System Alerts: AI/system anomalies
+
+**Features:**
+
+- Timestamped color-coded alerts
+
+- Audio alerts
+
+- Acknowledge or dismiss with one click
+
+---
+
+## ⚙️ Installation
+### 1️⃣ Clone Repository
+    bash
+    Copy code
+    git clone https://github.com/<your-username>/space-habitat-design-system.git
+    cd space-habitat-design-system
+
+---
+
+## 2️⃣ Create Virtual Environment
+    bash
+    Copy code
+    python -m venv venv
+    source venv/bin/activate     # Windows: venv\Scripts\activate
+
+---
+
+## 3️⃣ Install Dependencies
+    bash
+    Copy code
+    pip install -r requirements.txt
+
+
+---
+## 4️⃣ Add Environment Variables
+- Create a .env file:
+
+- bash
+- Copy code
+- NASA_API_KEY=your_nasa_api_key
+- **⚠️ Don’t push .env to GitHub. Keep it private.**
+
+---
+
+### 5️⃣ Run Application
+bash
+Copy code
+
+    streamlit run app.py
+    
+---
+
+### 🌍 Deployment
+# 🚀  Deploy on Streamlit Cloud
+- Push to GitHub
+
+- Go to streamlit.io/cloud
+
+- Add app.py as the main file
+
+- Configure API keys in Secrets
+
+            Your live app → https://stellarpulse.streamlit.app
+
+---
+
+### 🌌 Deploy on Hugging Face Spaces
+- Create a new Streamlit Space
+
+- Upload your files or connect GitHub
+
+- Add requirements.txt
+
+- Add secrets (NASA_API_KEY) under “Settings”
+
+---
+
+## 📁 Project Structure
+
+```bash
+Space-Habitat-Design-System/
+│
+├── app.py                       # Main Streamlit app
+│
+├── pages/                       # Application pages
+│   ├── dashboard.py             # Dashboard page (live vitals & stats)
+│   ├── analytics.py             # AI-powered mission insights
+│   ├── ai_advisor.py            # Intelligent recommendation engine
+│   ├── nasa_apod.py             # NASA Astronomy Picture of the Day viewer
+│   ├── alerts.py                # Alert and notification system
+│   ├── reports.py               # Daily reports & log generator
+│   └── settings.py              # Mission configuration panel
+│
+├── assets/                      # Images, animations, and visual assets
+│
+├── .env.example                 # Example environment variables
+│
+├── requirements.txt             # Python dependencies
+│
+└── README.md                    # Project documentation
+```
+
+### 👨‍🚀 Developer
+Muhammad Safwan Ahmad Saffi
+Software Engineer | AI & Space Tech Enthusiast
+
+---
+
+[MIT](https://choosealicense.com/licenses/mit/) © 2025 Space-Habitat-Design-System (SHDS) Project. All Rights Reserved.
+
+
+            🌠 “Beyond Data. Beyond Limits. Designed for Space.”
