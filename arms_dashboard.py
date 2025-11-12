@@ -7,7 +7,7 @@ from groq import Groq
 import os
 
 # API Keys
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", " GROQ_API_KEY ")
 client = Groq(api_key=GROQ_API_KEY)
 
 def get_real_time_data():
@@ -103,4 +103,5 @@ def render_arms_dashboard():
             st.success(res.choices[0].message.content)
         except Exception as e:
             st.error(f"AI API Error: {e}")
+
 
